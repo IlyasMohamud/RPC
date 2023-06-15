@@ -1,14 +1,15 @@
 import random
 choices = ["rock", "paper", "scissors"]
+score = 0
 
-def computer():
+def computer():#computer chooses random int, that becomes one of the choices
     x = random.randint(0,2)
     choice =  choices[x]
     print("computer chose " + choice)
     return choice
 
 
-def user():
+def user():#takes user input for choice, if the choice is invalid the user has to go agian
     while True:
         x = input("Choose between either Rock, Paper or Scissors ")
         choice = x.lower()
@@ -38,7 +39,7 @@ def checkWinner(user, comp):#very redundant try to make shorter, maybe make choi
         return 0
 
 
-def keepgoing():
+def keepgoing():#checks if the user wants to continue or not
    while True:
         x = input("would you like to continue, yes or no ")
         answer = x.lower()
@@ -53,9 +54,10 @@ def keepgoing():
 
 
 
-def RPC(): 
+def RPC(): #main game function
     print("Welcome to Rock Paper Scissors\n")
     while True:
+       
         checkWinner(user(), computer())
         answer = keepgoing()
         if answer:
